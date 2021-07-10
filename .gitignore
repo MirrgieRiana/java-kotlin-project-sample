@@ -1,1 +1,4 @@
 maven
+.gradle
+.idea
+build
