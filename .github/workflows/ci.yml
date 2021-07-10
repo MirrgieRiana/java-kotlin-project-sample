@@ -11,8 +11,8 @@ jobs:
 
       - name: Build
         run: |
-          bash maven-copy.sh
-          bash gradlew shadowJar
+          bash maven-copy.sh || exit
+          bash gradlew shadowJar || exit
 
       - name: Test
         run: |
