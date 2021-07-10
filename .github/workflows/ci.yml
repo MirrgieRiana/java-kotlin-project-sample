@@ -1,0 +1,27 @@
+name: CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Build
+        run: |
+          bash maven-copy.sh
+          bash gradlew shadowJar
+
+      - name: Test
+        run: |
+          command=(java -cp build/libs/java-kotlin-project-sample-all.jar Main)
+          out=$("${command[@]}")
+          echo "$out"
+          [ 'KOTLIN[Hello from Java!]' = "$out" ] || exit
+
+          command=(java -cp build/libs/java-kotlin-project-sample-all.jar MainKotlin)
+          out=$("${command[@]}")
+          echo "$out"
+          [ 'JAVA[Hello from Kotlin!]' = "$out" ] || exit
