@@ -1,3 +1,4 @@
+[![CI](https://github.com/MirrgieRiana/java-kotlin-project-sample/actions/workflows/ci.yml/badge.svg)](https://github.com/MirrgieRiana/java-kotlin-project-sample/actions/workflows/ci.yml)
 
 # java-kotlin-project-sample
 
