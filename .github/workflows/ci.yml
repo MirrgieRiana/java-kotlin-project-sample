@@ -12,7 +12,9 @@ jobs:
       - name: Build
         run: |
           bash maven-copy.sh || exit
+          find maven
           bash gradlew shadowJar || exit
+          find build/libs
 
       - name: Test
         run: |
