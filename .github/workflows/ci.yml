@@ -13,12 +13,20 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Build
-        run: |
-          bash maven-copy.sh || exit
-          find maven
-          bash gradlew shadowJar || exit
-          find build/libs
+      - name: Copy Maven Repositories
+        run: bash maven-copy.sh
+
+      - name: Show Maven Files
+        run: find maven -type f
+
+      - name: Show Maven Jars
+        run: find maven -type f | grep -E '\.jar$' | xargs -n 100 ls -lh
+
+      - name: Build Shadow Jar
+        run: bash gradlew shadowJar
+
+      - name: Show Shadow Jar
+        run: find build/libs -type f
 
       - name: Test
         run: |
