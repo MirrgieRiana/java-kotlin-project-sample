@@ -15,7 +15,6 @@
                     <useRepositoryLayout>true</useRepositoryLayout>
                     <copyPom>true</copyPom>
                     <addParentPoms>true</addParentPoms>
-                    <includeScope>test</includeScope>
                 </configuration>
             </plugin>
         </plugins>
